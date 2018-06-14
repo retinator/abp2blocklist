@@ -188,7 +188,7 @@ exports.generateRules = {
     runTest(test, [
       testRules(test,
                 ["###example", "test.com###EXAMPLE"],
-                ["[id=example]", "[id=EXAMPLE]"],
+                ["#example", "#example"],
                 rules => rules.map(rule => rule.action.selector))
     ]);
   },
@@ -347,7 +347,7 @@ exports.generateRules = {
       testRules(test, ["🐈%F0%9F%90%88$domain=🐈.cat"],
                 "^[^:]+:(//)?.*%F0%9F%90%88%F0%9F%90%88",
                 rules => rules[0]["trigger"]["url-filter"]),
-      testRules(test, ["###🐈"], "[id=🐈]",
+      testRules(test, ["###🐈"], "#🐈",
                 rules => rules[0]["action"]["selector"])
     ]);
   },
